@@ -19,9 +19,9 @@ const getData = () =>
 
 const getSheetData = (sheetName) => flow(get(sheetName), pick(["columnNames", "elements"]))
 
-router.get("/places", (request, response, next) => {
+router.get("/sheets/:sheetName", (request, response, next) => {
   getData()
-    .then(getSheetData("Places"))
+    .then(getSheetData(request.params.sheetName))
     .then((data) => response.json(data))
     .catch(next)
 })
