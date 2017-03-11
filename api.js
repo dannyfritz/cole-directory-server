@@ -3,6 +3,9 @@ const router = express.Router()
 const Tabletop = require("tabletop")
 const axios = require("axios")
 const memoize = require("lodash/fp/memoize")
+const pick = require("lodash/fp/pick")
+const get = require("lodash/fp/get")
+const flow = require("lodash/fp/flow")
 
 const getData = () =>
   new Promise(
@@ -14,11 +17,12 @@ const getData = () =>
       })
   )
 
+const getSheetData = (sheetName) => flow(get(sheetName), pick(["columnNames", "elements"]))
+
 router.get("/places", (request, response, next) => {
   getData()
-    .then((data) => {
-      response.json(data.Places)
-    })
+    .then(getSheetData("Places"))
+    .then((data) => response.json(data))
     .catch(next)
 })
 
