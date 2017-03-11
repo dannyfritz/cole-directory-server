@@ -4,6 +4,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-console": 1,
     "quotes": ["error", "double"],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
