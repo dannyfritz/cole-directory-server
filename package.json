@@ -1,0 +1,30 @@
+{
+  "name": "cole-directory-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyfritz/cole-directory-server.git"
+  },
+  "author": "Danny Fritz <dannyfritz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dannyfritz/cole-directory-server/issues"
+  },
+  "homepage": "https://github.com/dannyfritz/cole-directory-server#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.17.1",
+    "eslint-config-es2015": "^1.1.0",
+    "eslint-config-standard": "^7.0.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "express": "^4.15.2"
+  }
+}

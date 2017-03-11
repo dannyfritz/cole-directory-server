@@ -1,0 +1,17 @@
+{
+  "extends": ["es2015", "standard"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "quotes": ["error", "double"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore",
+    }],
+    "arrow-parens": ["error", "always"]
+  }
+}
