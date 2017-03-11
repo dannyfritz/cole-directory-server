@@ -29,7 +29,7 @@ router.get("/places", (request, response, next) => {
 const geoCode = memoize((address) =>
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GMAP_KEY}&address=${address}`)
     .then((response) => {
-      if (response.data && response.data.status) {
+      if (response.data && response.data.status !== "OK") {
         throw new Error(`${response.data.status}: ${response.data.error_message}`)
       }
       return response.data
