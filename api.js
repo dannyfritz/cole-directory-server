@@ -26,15 +26,18 @@ router.get("/sheets/:sheetName", (request, response, next) => {
     .catch(next)
 })
 
-const geoCode = memoize((address) =>
-  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GMAP_KEY}&address=${address}`)
+const geoCode = memoize((address) => {
+  // eslint-disable-next-line no-console
+  console.log(`Hitting Google for geocode location of ${address}...`)
+  return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GMAP_KEY}&address=${address}`)
     .then((response) => {
       if (response.data && response.data.status !== "OK") {
         throw new Error(`${response.data.status}: ${response.data.error_message}`)
       }
       return response.data
     }
-  ))
+  )
+})
 
 router.get("/geocode", (request, response, next) => {
   if (!request.query.address) {
